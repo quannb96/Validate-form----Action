@@ -1,8 +1,8 @@
 const form = document.getElementById("form");
-const username = document.getElementById("username");
-const email = document.getElementById("email");
-const password = document.getElementById("password");
-const password2 = document.getElementById("password2");
+const nameInput = document.getElementById("nameInput");
+const emailInput = document.getElementById("emailInput");
+const passwordInput = document.getElementById("passwordInput");
+const password2Input = document.getElementById("password2Input");
 const URLInput = document.getElementById("URLInput");
 const optionSelect = document.getElementById("devSelect");
 
@@ -17,62 +17,65 @@ form.addEventListener("submit", (e) => {
 
 function checkInputs() {
   // trim to remove the whitespaces
-  const usernameValue = username.value.trim();
-  const emailValue = email.value.trim();
-  const passwordValue = password.value.trim();
-  const password2Value = password2.value.trim();
-  const URLInputValue = URLInput.value.trim();
-  const optionSelectValue = optionSelect.value.trim();
+  // const usernameValue = username.value.trim();
+  // const emailValue = email.value.trim();
+  // const passwordValue = password.value.trim();
+  // const password2Value = password2.value.trim();
+  // const URLInputValue = URLInput.value.trim();
+  // const optionSelectValue = optionSelect.value.trim();
 
   let isValid = true;
-  if (usernameValue === "") {
-    showError(username, "Username is required");
+  if (nameInput.value.trim() === "") {
+    showError(nameInput, "Username is required");
     isValid = false;
   } else {
-    ShowSuccess(username);
+    ShowSuccess(nameInput);
   }
 
-  if (emailValue === "") {
-    showError(email, "Email is required");
+  if (emailInput.value.trim() === "") {
+    showError(emailInput, "Email is required");
     isValid = false;
-  } else if (!isEmail(emailValue)) {
-    showError(email, "Not a valid email");
+  } else if (!isEmail(emailInput.value.trim())) {
+    showError(emailInput, "Not a valid email");
     isValid = false;
   } else {
-    ShowSuccess(email);
+    ShowSuccess(emailInput);
   }
 
-  if (passwordValue === "") {
-    showError(password, "Password is required");
+  if (passwordInput.value.trim() === "") {
+    showError(passwordInput, "Password is required");
     isValid = false;
-  } else if (passwordValue.length < 6 || passwordValue.length > 25) {
-    showError(password, "Password must be between 6 and 25 characters.");
+  } else if (
+    passwordInput.value.trim().length < 6 ||
+    passwordInput.value.trim().length > 25
+  ) {
+    showError(passwordInput, "Password must be between 6 and 25 characters.");
     isValid = false;
   } else {
-    ShowSuccess(password);
+    ShowSuccess(passwordInput);
   }
 
-  if (password2Value === "") {
-    showError(password2, "Password2 is required");
+  if (password2Input.value.trim() === "") {
+    showError(password2Input, "Password2 is required");
     isValid = false;
-  } else if (passwordValue !== password2Value) {
-    showError(password2, "Passwords does not match");
+  } else if (passwordInput.value.trim() !== password2Input.value.trim()) {
+    showError(password2Input, "Passwords does not match");
     isValid = false;
   } else {
-    ShowSuccess(password2);
+    ShowSuccess(password2Input);
   }
 
-  if (URLInputValue === "") {
+  if (URLInput.value.trim() === "") {
     showError(URLInput, "URL is required");
     isValid = false;
-  } else if (!isURL(URLInputValue)) {
+  } else if (!isURL(URLInput.value.trim())) {
     showError(URLInput, "Not a valid URL");
     isValid = false;
   } else {
     ShowSuccess(URLInput);
   }
 
-  if (optionSelectValue === "") {
+  if (optionSelect.value.trim() === "") {
     showError(optionSelect, "Option is required");
     isValid = false;
   } else {
@@ -111,9 +114,9 @@ function isURL(URLInput) {
 let listInfo = [];
 function addInfo() {
   let info_obj = {
-    username: username.value,
-    email: email.value,
-    password: password.value,
+    nameInput: nameInput.value,
+    emailInput: emailInput.value,
+    passwordInput: passwordInput.value,
     URLInput: URLInput.value,
     optionSelect: optionSelect.value,
   };
@@ -130,9 +133,9 @@ function showInfo() {
   listInfo.forEach((Element, i) => {
     list.innerHTML += ` <tr>
                                 <td>${i + 1}</td>
-                                <td>${Element.username}</td>
-                                <td>${Element.email}</td>
-                                <td>${Element.password}</td>
+                                <td>${Element.nameInput}</td>
+                                <td>${Element.emailInput}</td>
+                                <td>${Element.passwordInput}</td>
                                 <td>${Element.URLInput}</td>
                                 <td>${Element.optionSelect}</td>
                                 
