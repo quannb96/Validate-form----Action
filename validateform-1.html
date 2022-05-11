@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./validateform-1.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h2>Create Account</h2>
+      </div>
+      <form id="form" class="form">
+        <div class="form-control">
+          <label for="username">Username</label>
+          <input type="text" placeholder="florinpop17" id="username" />
+          <small>Error message</small>
+        </div>
+
+        <div class="form-control">
+          <label for="username">Email</label>
+          <input type="text" placeholder="a@florin-pop.com" id="email" />
+          <small>Error message</small>
+        </div>
+
+        <div class="form-control">
+          <label for="username">Password</label>
+          <input type="password" placeholder="Password" id="password" />
+          <small>Error message</small>
+        </div>
+
+        <div class="form-control">
+          <label for="username">Password check</label>
+          <input type="password" placeholder="Password two" id="password2" />
+          <small>Error message</small>
+        </div>
+
+        <div class="form-control">
+          <label for="username">URL</label>
+          <input type="text" placeholder="https://...." id="URLInput" />
+          <small>Error message</small>
+        </div>
+        <div class="form-control">
+          <select name="" id="devSelect">
+            <option value="">-- Choose one option --</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="C++">C++</option>
+            <option value="Java">Java</option>
+          </select>
+          <small>Error message</small>
+        </div>
+        <button id="btnAdd">Submit</button>
+      </form>
+    </div>
+
+    <div class="action">
+      <table>
+        <thead>
+          <th>#</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Password</th>
+        </thead>
+        <tbody id="list"></tbody>
+      </table>
+    </div>
+
+    <script src="./validateform-1.js"></script>
+  </body>
+</html>
